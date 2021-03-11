@@ -6,9 +6,10 @@ IceDecrypt is a bulk IcedID decryption tool allowing for decryption/payload reas
 
 # Required Libs
 pefile
+
 argparse
 
 # Usage
-python3 IcedDecrypt.py -f <input file> -o <optional file output>
+python3 IcedDecrypt.py -f [input file] -o [optional file output]
 
 
