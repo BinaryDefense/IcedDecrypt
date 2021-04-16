@@ -417,6 +417,9 @@ class IcedDecrypt:
 
         print("Rundll32 String: ",rundllstr)
         rundll  = open(rundllOut,"w+b")
+        rundll.write(f"copy {dataDict['DllFile_Name']} C:\\Users\\admin\\Appdata\\Local\\".encode() + b"\r\n")
+        rundll.write(f"md C:\\Users\\admin\\Appdata\\Roaming\\{dataDict['Directory_Name']}\\".encode() + b"\r\n")
+        rundll.write(f"copy {dataDict['DatFile_Name']} C:\\Users\\admin\\Appdata\\Roaming\\{dataDict['Directory_Name']}\\".encode() + b"\r\n")
         rundll.write(rundllstr.encode() + b"\r\n")
         rundll.close()
         print(f"[+] Wrote {datFileOut}, {dllFileOut}, and {rundllOut}")
