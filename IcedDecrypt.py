@@ -417,7 +417,7 @@ class IcedDecrypt:
         print(f"[+] Wrote {datFileOut}, and {dllFileOut}")
         try:
             print("[+] Attempting C2 Buffer Decryption")
-            iced2 = IcedDecrypt(filename=datFileOut, output=f"{datFileOut}_output.file")
+            iced2 = IcedDecrypt(filename=dllFileOut, output=f"{dllFileOut}_output.file")
             iced2.main()
         except Exception as e:
             print(e)
