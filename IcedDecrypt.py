@@ -330,7 +330,7 @@ class IcedDecrypt:
         string1 = b""
 
         for i in range(len(data)):
-            if data[i] == 0x00 and data[i + 1] == 0x00:
+            if data[i] == 0x00:
                 break
             string1 += data[i].to_bytes(1, byteorder="little")
         return string1
