@@ -425,7 +425,7 @@ class IcedDecrypt:
         rundll.write(rundllstr.encode() + b"\r\n")
         rundll.close()
         print(f"[+] Wrote {datFileOut}, {dllFileOut}, and {rundllOut}")
-        print(f"[+] Wrote {datFileOut}, and {dllFileOut}")
+        
         try:
             print("[+] Attempting C2 Buffer Decryption")
             iced2 = IcedDecrypt(filename=dllFileOut, output=f"{dllFileOut}_output.file")
