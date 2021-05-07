@@ -414,6 +414,17 @@ class IcedDecrypt:
         dllout = open(dllFileOut, "w+b")
         dllout.write(dllFileData)
         dllout.close()
+        rundllstr = 'rundll32.exe "{}",update /i:"{}"'
+        rundllstr = rundllstr.format(f"%localappdata%/{dataDict['DllFile_Name']}",f"{dataDict['Directory_Name']}/{dataDict['DatFile_Name']}")
+
+        print("Rundll32 String: ",rundllstr)
+        rundll  = open(rundllOut,"w+b")
+        rundll.write(f"copy {dataDict['DllFile_Name']} C:\\Users\\admin\\Appdata\\Local\\".encode() + b"\r\n")
+        rundll.write(f"md C:\\Users\\admin\\Appdata\\Roaming\\{dataDict['Directory_Name']}\\".encode() + b"\r\n")
+        rundll.write(f"copy {dataDict['DatFile_Name']} C:\\Users\\admin\\Appdata\\Roaming\\{dataDict['Directory_Name']}\\".encode() + b"\r\n")
+        rundll.write(rundllstr.encode() + b"\r\n")
+        rundll.close()
+        print(f"[+] Wrote {datFileOut}, {dllFileOut}, and {rundllOut}")
         print(f"[+] Wrote {datFileOut}, and {dllFileOut}")
         try:
             print("[+] Attempting C2 Buffer Decryption")
